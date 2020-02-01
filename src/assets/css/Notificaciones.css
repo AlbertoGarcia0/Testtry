@@ -1,0 +1,16 @@
+/*variables*/
+@import "Colors.css";
+
+.card{
+  margin: 10px;
+  height: auto;
+}
+.card-header{
+  background-color: var(--onyx);
+  color: var(--white);
+}
+
+.card-body Button{
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
