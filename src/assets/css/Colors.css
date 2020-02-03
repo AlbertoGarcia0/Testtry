@@ -1,11 +1,21 @@
 :root {
-  --onyx: rgba(52, 58, 64, 1);
-  --white: rgba(255, 255, 255, 1);
-  --urobilin: rgba(242, 175, 41, 1);
-  --sweet-brown: rgba(173, 52, 62, 1);
-  --queen-blue: rgba(67, 124, 144, 1);
 
-  --dark-color: var(--onyx);
-  --light-color: var(--white);
-  --text-color:var(--white);
+  --blue-dark: #0095A8;
+  --blue-light: #13ADC1;
+  --yellow-ocre: #FDD036;
+  --onyx: #292929;
+  --white: #FFFFFF;
+
+
+  --navbar_background_color: var(--blue-dark);
+  --navbar_color: var(--white);
+
+  --card_header_color: var(--blue-dark);
+  --card_header_font_color:var(--white);
+  --card_body_color: var(--white);
+  --card_body_font_color: var(--black);
+
+  --button_color: var(--onyx);
+  --button_background_color: var(--yellow-ocre);
+  --button_border_color: var(--button_background_color);
 }

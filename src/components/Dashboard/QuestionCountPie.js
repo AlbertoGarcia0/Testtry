@@ -77,8 +77,8 @@ class QuestionPie extends React.Component {
     return (
       <div>
         <Card className="text-center" id='pie_card'>
-          <Card.Header id='pie_card_header'>Preguntas disponibles</Card.Header>
-          <Card.Body>
+          <Card.Header id='card_header'>Preguntas disponibles</Card.Header>
+          <Card.Body id='card_body'>
               <Pie data={this.data} />
           </Card.Body>
           <Card.Footer className="text-muted">Ultima actualizacion: {lastDBUpdate()}</Card.Footer>

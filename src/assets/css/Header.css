@@ -2,11 +2,24 @@
 @import "Colors.css";
 
 
+#navbar{
+  background-color: var(--navbar_background_color);
+  color: var(--navbar_color);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color:rgb(255, 254, 254);
+}
+#standard_button{
+  background-color: var(--button_background_color);
+  color: var(--button_color);
+  border-color: var(--button_border_color);
+}
+
 /* For mobile phones: */
 
 .popover-header {
   text-align:center;
-  background-color: var(--dark-color);
   color: var(--text-color);
   font-weight: bold;
 }
@@ -16,6 +29,14 @@
 }
 
 
+#standard_button{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    padding-left: 40px;
+}
 
 /* For desktop: */
 @media only screen and (min-width: 768px) {
@@ -26,5 +47,14 @@
 
   .navClass{
    color: var(--urobilin);
+  }
+  
+  .navbar-light .navbar-nav .nav-link {
+      padding-left: 10px;
+  }
+
+  #standard_button{
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }

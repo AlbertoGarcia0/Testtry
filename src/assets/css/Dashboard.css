@@ -1,3 +1,16 @@
+@import "Colors.css";
+
+
+/* ------------ IMPORTANTE --------------*/
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+/* ----------- COLORES ---------------*/
 
 #Dashboard{
   margin-top: 75px;
@@ -5,35 +18,44 @@
 }
 
 #card_header{
-  background-color: #8c0022;
-  color: white;
+  background-color: var(--card_header_color);
+  color: var(--card_header_font_color);
+  font-size: 115%;
+  font-weight: bold;
+  text-align: center;
 }
 
 #card_body{
-  background-color: #f1f1f1;
-  color: black;
+  background-color:var(--card_body_color);
+  color: var(--card_body_font_color);
 }
 
-#pie_card_header{
-  color: white;
-  background-color: #8c0022;
+#image_button_button{
+  background-color: var(--button_background_color);
+  color: var(--button_color);
+  border-color: var(--button_border_color);
 }
+
 /* For smartphone: */
 .big-logo {
   max-width:5vh;
 }
 
-#pie_card{
-  display: flex;
-}
-
 #image_button{
   margin-top: 10px;
-  display: flex;
+}
+
+#web_info_card{
+  width: auto;
+  height: auto;
+  padding-top: 5vh;
+  padding-left: 3vh;
+  margin-bottom: 10px;
 }
 
 /* For desktop: */
 @media only screen and (min-width: 768px) {
+
 
   .big-logo {
     max-width:5vh;
@@ -41,11 +63,23 @@
 
   #pie_card{
     width: 35rem;
+    height: 25rem;
   }
 
   #image_button{
     display: flex;
     width: 18rem;
     height: 10rem;
+  }
+
+  #web_info_card{
+    width: auto;
+    height: 25rem;
+    padding: 5vh;
+    margin-bottom: 10px;
+  }
+
+  #card_body{
+    padding-bottom: 100px;
   }
 }

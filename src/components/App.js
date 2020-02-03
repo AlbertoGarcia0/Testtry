@@ -2,7 +2,7 @@ import React from 'react';
 
 import Accordion from 'react-bootstrap/Accordion'
 import {ToastProvider} from 'react-toast-notifications';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import 'react-toastify/dist/ReactToastify.css';
 import '../assets/css/App.css';
@@ -14,12 +14,12 @@ document.body.style = 'background: #e0e0e0;';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter basename="/">
       <div className="App">
         <Header />
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
