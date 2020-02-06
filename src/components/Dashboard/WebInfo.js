@@ -2,8 +2,6 @@ import React from "react"
 import '../../assets/css/Dashboard.css';
 import logo from '../../assets/img/LogoBig.png';
 
-import Card from 'react-bootstrap/Card'
-
 
 class WebInfo extends React.Component{
   render(){

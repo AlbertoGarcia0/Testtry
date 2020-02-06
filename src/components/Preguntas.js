@@ -1,4 +1,4 @@
-import React from "react"
+mport React from "react"
 import '../assets/css/Preguntas.css';
 
 

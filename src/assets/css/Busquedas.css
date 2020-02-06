@@ -1,0 +1,49 @@
+@import "Colors.css";
+
+
+/* ------------ IMPORTANTE --------------*/
+.container{
+  align-items: center;
+  max-width: 100%;
+}
+
+/* For listofonos*/
+#component_busqueda{
+  align-items: stretch;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+#form_element{
+  margin-bottom:  10px;
+}
+
+
+#search_result_card{
+  margin-top: 25px;
+  height: 60vh;
+  max-width: auto;
+  overflow-y: auto;
+}
+
+/* For desktop: */
+@media only screen and (min-width: 768px) {
+  #component_busqueda{
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    max-width: 90vw;
+  }
+
+  #form_element{
+    max-width: auto;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+
+  #search_result_card{
+    margin-top: 0px;
+  }
+
+}

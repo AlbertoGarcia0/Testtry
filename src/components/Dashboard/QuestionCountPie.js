@@ -34,7 +34,7 @@ const addLight = function(color, amount){
 function getLightenColors(colors){
   var lighten_colors = []
     for (var i = 0; i < colors.length; i++) {
-      if (colors[i] != undefined) {
+      if (colors[i] !== undefined) {
         lighten_colors.push(lighten(colors[i], 10))
     }
   }

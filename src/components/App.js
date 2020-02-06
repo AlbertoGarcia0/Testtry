@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Accordion from 'react-bootstrap/Accordion'
 import {ToastProvider} from 'react-toast-notifications';
 import { HashRouter } from 'react-router-dom';
 
