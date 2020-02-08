@@ -10,6 +10,7 @@ import Fade from 'react-reveal/Fade';
 import {Switch, Route, Link, Redirect} from "react-router-dom";
 
 import Dashboard from './Dashboard'
+import Test from './Test'
 import Busquedas from './Busquedas'
 import NotFoundView from './NotFound'
 
@@ -37,10 +38,18 @@ function busqueda_view(){
   )
 }
 
+function test_view(){
+  return(
+      <Fade>
+        <Test/>
+      </Fade>
+  )
+}
+
 function Header(){
   return(
     <div id="inicio">
-       <Navbar expand="lg" fixed="top" id='navbar'>
+       <Navbar collapseOnSelect expand="lg" fixed="top" id='navbar'>
          <Navbar.Brand id='navbar'>
            <img src={logo} style={{ width: '40px'}}/>
            Testtry
@@ -48,18 +57,19 @@ function Header(){
          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
          <Navbar.Collapse id="responsive-navbar-nav">
            <Nav className="mr-auto" >
-             <Nav.Link as={Link} to='/' >Inicio</Nav.Link>
-             <Nav.Link as={Link} to='/busqueda'>Busqueda</Nav.Link>
-             <Nav.Link as={Link} to='/404'>404</Nav.Link>
+             <Nav.Link href='#/'>Inicio</Nav.Link>
+             <Nav.Link href='#/busqueda'>Busqueda</Nav.Link>
+             <Nav.Link href='#/404'>404</Nav.Link>
            </Nav>
            <Form inline id='form_header_buttons'>
-             <Button id='standard_button'>Nuevo test</Button>
+             <Button id='standard_button' href='#/test'>Nuevo test</Button>
            </Form>
          </Navbar.Collapse>
        </Navbar>
 
        <Switch>
          <Route exact path="/" component={dashboard_view}/>
+         <Route exact path="/test" component={test_view}/>
          <Route path="/busqueda" component={busqueda_view}/>
          <Route path="/404" component={notFound}/>
          <Redirect to="/404" />

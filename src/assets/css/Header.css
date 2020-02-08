@@ -2,20 +2,6 @@
 @import "Colors.css";
 
 
-#navbar{
-  background-color: var(--navbar_background_color);
-  color: var(--navbar_color);
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color:rgb(255, 254, 254);
-}
-
-#standard_button{
-  background-color: var(--button_background_color);
-  color: var(--button_color);
-  border-color: var(--button_border_color);
-}
 
 #form_header_buttons{
   display: flex;

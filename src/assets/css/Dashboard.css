@@ -17,20 +17,6 @@
   margin-bottom: 100px;
 }
 
-#card_header{
-  background-color: var(--card_header_color);
-  color: var(--card_header_font_color);
-  font-size: 115%;
-  font-weight: bold;
-  text-align: center;
-}
-
-#card_body{
-  font-size: 17px;
-  background-color:var(--card_body_color);
-  color: var(--card_body_font_color);
-}
-
 #image_button_button{
   background-color: var(--button_background_color);
   color: var(--button_color);
@@ -42,6 +28,7 @@
   align-items: center;
   flex-direction: column;
 }
+
 /* For smartphone: */
 .big-logo {
   max-width:5vh;
