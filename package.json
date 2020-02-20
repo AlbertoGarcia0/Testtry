@@ -24,6 +24,7 @@
     "react-infinite-grid": "^0.4.0",
     "react-lazyload": "^2.6.5",
     "react-pose": "^4.0.10",
+    "react-progress-button": "^5.1.0",
     "react-reveal": "^1.2.2",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",

@@ -6,8 +6,10 @@ import {Container, Row, Col, Form, Card, Button} from 'react-bootstrap'
 import ScrollerResultados from './Busquedas/ScrollerResultados'
 import FormularioBusquedas from './Busquedas/FormularioBusquedas'
 
+import api_preguntas from '../database/API/preguntas'
+
 function buscarPreguntas(){
-  return [['pregunta1'], ['pregunta2']]
+  return api_preguntas.Preguntas
 }
 
 class Busquedas extends React.Component{
@@ -27,7 +29,9 @@ class Busquedas extends React.Component{
 
   realizarBusqueda(){
     console.log('Asignatura: ' + this.state.asignatura + ', palabras_clave: ' + this.state.palabras_clave + ', tipo_pregunta: ' + this.state.tipo_pregunta)
-    this.state.resultados = buscarPreguntas()
+    fetch('../database/API/preguntas')
+        .then(res => res.json())
+        .then(json => this.setState({ resultados: json }));
     this.ScrollerResultadosReference.current.refreshPreguntasEncontradas()
   }
 
