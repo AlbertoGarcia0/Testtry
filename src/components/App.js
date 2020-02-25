@@ -8,10 +8,12 @@ import '../assets/css/App.css';
 
 import Header from './Header'
 import Footer from './Footer'
+import InitGA from './Statics'
 
 document.body.style = 'background: #e0e0e0;';
 
 function App() {
+  InitGA()
   return (
     <HashRouter basename="/">
       <div className="App">

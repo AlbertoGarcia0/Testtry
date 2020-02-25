@@ -10,8 +10,10 @@ import Dashboard from './Dashboard'
 import Test from './Test'
 import Busquedas from './Busquedas'
 import NotFoundView from './NotFound'
+import viewPageGA from './Statics'
 
 function notFound(){
+  viewPageGA('404')
   return(
     <Fade>
       <NotFoundView/>
@@ -20,6 +22,7 @@ function notFound(){
 }
 
 function dashboard_view(){
+  viewPageGA('Dashboard')
   return(
       <Fade>
         <Dashboard/>
@@ -28,6 +31,7 @@ function dashboard_view(){
 }
 
 function busqueda_view(){
+  viewPageGA('Busquedas')
   return(
       <Fade>
         <Busquedas/>
@@ -36,6 +40,7 @@ function busqueda_view(){
 }
 
 function test_view(){
+  viewPageGA('Test')
   return(
       <Fade>
         <Test/>
