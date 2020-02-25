@@ -38,7 +38,7 @@ const EduardezLogo = (
 function Footer(){
   return(
     <footer className="about">
-      <Navbar bg="dark" variant="dark" fixed="sticki-bottom">
+      <Navbar bg="dark" variant="dark" fixed="sticky-bottom">
         <Navbar.Brand href="#Eduardez"> {EduardezLogo}</Navbar.Brand>
       </Navbar>
     </footer>

@@ -8,25 +8,26 @@ import ProgressButton from 'react-progress-button'
 class CardPregunta extends React.Component{
   constructor(props){
     super(props)
-    console.log(this.props.enunciado);
   }
 
   render(){
+    const options = this.props.respuestas.map(function(e){
+      return  <li>{e}</li>
+    })
     return(
     <Card id='card_pregunta_encontrada'>
       <Card.Header id='card_pregunta_encontrada_header'>Pregunta {this.props.numero}</Card.Header>
       <Card.Body>
-        <Card.Text>
-          <h3>{this.props.enunciado}</h3>
+          <p>{this.props.enunciado}</p>
+          <ol type = "A"> {options} </ol>
 
-        </Card.Text>
       </Card.Body>
       <Card.Footer>
         <OverlayTrigger
           key='top'
           placement='top'
           overlay={
-            <Tooltip> Respuesta correcta </Tooltip>
+            <Tooltip>{this.props.correcta}</Tooltip>
           }
         >
           <Button variant="secondary">Mostrar respuesta</Button>
@@ -56,7 +57,7 @@ class ScrollerResultados extends React.Component{
     this.setState({numero_preguntas_encontradas: num_resultados})
     var array_preguntas_aux = []
     for (var i = 0; i < num_resultados; i++) {
-    	array_preguntas_aux.push(<CardPregunta numero={i} enunciado={array_resultados[i].enunciado} key={"pregunta-" + i} />);
+    	array_preguntas_aux.push(<CardPregunta numero={i} enunciado={array_resultados[i].enunciado} correcta={array_resultados[i].verdadera} respuestas={array_resultados[i].respuestas} key={"pregunta-" + i} />);
     }
     this.setState({array_card_preguntas: array_preguntas_aux})
   }
@@ -73,7 +74,7 @@ class ScrollerResultados extends React.Component{
                       <React.Fragment>
                        {this.state.array_card_preguntas.map(pregunta => (
                          <React.Fragment key={pregunta.props.numero}>
-                           <CardPregunta numero={pregunta.props.numero}/>
+                           <CardPregunta numero={pregunta.props.numero} enunciado={pregunta.props.enunciado} respuestas={pregunta.props.respuestas} correcta={pregunta.props.correcta}/>
                          </React.Fragment>
                        ))}
                      </React.Fragment>

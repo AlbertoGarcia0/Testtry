@@ -5,12 +5,7 @@ import {Container, Row, Col, Form, Card, Button} from 'react-bootstrap'
 
 import ScrollerResultados from './Busquedas/ScrollerResultados'
 import FormularioBusquedas from './Busquedas/FormularioBusquedas'
-
-import api_preguntas from '../database/API/preguntas'
-
-function buscarPreguntas(){
-  return api_preguntas.Preguntas
-}
+import * as JSONRetriever from './Busquedas/JSONRetriever'
 
 class Busquedas extends React.Component{
   constructor(props) {
@@ -27,11 +22,9 @@ class Busquedas extends React.Component{
     this.ScrollerResultadosReference = React.createRef()
   }
 
-  realizarBusqueda(){
-    console.log('Asignatura: ' + this.state.asignatura + ', palabras_clave: ' + this.state.palabras_clave + ', tipo_pregunta: ' + this.state.tipo_pregunta)
-    fetch('../database/API/preguntas')
-        .then(res => res.json())
-        .then(json => this.setState({ resultados: json }));
+  async realizarBusqueda(){
+    const data = await JSONRetriever.buscarPreguntas(this.state.asignatura, this.state.palabras_clave, this.state.tipo_pregunta)
+    this.setState({resultados: data.Preguntas})
     this.ScrollerResultadosReference.current.refreshPreguntasEncontradas()
   }
 
