@@ -12,13 +12,6 @@ const EduardezInfoPopover = (
     <Popover.Title as="h3">Eduardez</Popover.Title>
     <Popover.Content>
       <p>
-        A ver, la pagina esta la uso para tener ejemplos de librerias
-        que me molan. Este overlay por ejemplo esta sacado de la libreria
-        de bootstrap, luego el menu de otra.
-        Ire poniendo los nombres de cada una.
-      </p>
-      <p>
-        Enlace a mi
         <a href="https://www.github.com/eduardez" target="_blank"> <strong>GitHub</strong></a>
       </p>
     </Popover.Content>
@@ -39,7 +32,7 @@ function Footer(){
   return(
     <footer className="about">
       <Navbar bg="dark" variant="dark" fixed="sticky-bottom">
-        <Navbar.Brand href="#Eduardez"> {EduardezLogo}</Navbar.Brand>
+        <Navbar.Brand> {EduardezLogo}</Navbar.Brand>
       </Navbar>
     </footer>
 

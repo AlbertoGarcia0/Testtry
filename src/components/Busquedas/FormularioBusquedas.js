@@ -59,9 +59,9 @@ class FormularioBusquedas extends React.Component{
                 components={animatedComponents}
                 placeholder='Seleccionar asignaturas'
                 onChange={this.changeAsignatura}/>
-                <Form.Control placeholder="Tipo de Pregunta" id='form_element' onChange={this.changeTipoPregunta}/>
-                <Form.Control placeholder="Palabras clave contenidas en..." id='form_element' onChange={this.changeTipoPregunta}/>
-                <Form.Control placeholder="Palabras clave" id='form_element' onChange={this.changePalabrasClave}/>
+                <Form.Control disabled={true} placeholder="Tipo de Pregunta" id='form_element' onChange={this.changeTipoPregunta}/>
+                <Form.Control disabled={true} placeholder="Palabras clave contenidas en..." id='form_element' onChange={this.changeTipoPregunta}/>
+                <Form.Control disabled={true} placeholder="Palabras clave" id='form_element' onChange={this.changePalabrasClave}/>
                 <Button onClick={this.props.realizarBusqueda} id='standard_button_form' >Buscar</Button>
               </ReactPlaceholder>
             </Container>

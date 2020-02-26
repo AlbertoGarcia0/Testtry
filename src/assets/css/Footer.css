@@ -2,17 +2,28 @@
 /* For telefono: */
 .big-logo {
   max-width:5vh;
+  margin-top: -10px;
+  margin-left: 0px;
 }
 
 footer {
     position: fixed;
     bottom: 0px;
     width: 100%;
+    height: 12vw;
 }
 /* For desktop: */
 @media only screen and (min-width: 768px) {
   .big-logo {
     max-width:5vh;
+    margin: -10px;
+
+  }
+  footer {
+      position: fixed;
+      bottom: 0px;
+      width: 100%;
+      height: auto;
   }
 
 }
