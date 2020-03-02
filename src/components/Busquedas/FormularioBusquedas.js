@@ -1,11 +1,12 @@
 import React from "react"
 import '../../assets/css/Busquedas.css'
 
-import {Row, Col, Container, Card, Form, Button, FormControl, Dropdown} from 'react-bootstrap'
+import {Container, Card, Form, Button} from 'react-bootstrap'
 import Select from 'react-select'
-import * as JSONRetriever from './JSONRetriever'
 import makeAnimated from 'react-select/animated';
 import ReactPlaceholder from 'react-placeholder';
+
+import * as JSONRetriever from '../Logic/JSONRetriever'
 
 async function getAsignaturas(){
   let asig = await JSONRetriever.getAllNamesAsignaturas()

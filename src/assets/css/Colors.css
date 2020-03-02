@@ -1,28 +1,37 @@
 :root {
 
-  --blue-dark: #0095A8;
+  --blue: #0095A8;
+  --blue-dark: #004a53;
   --blue-light: #13ADC1;
   --yellow-ocre: #FDD036;
   --onyx: #292929;
   --white: #FFFFFF;
 
 
-  --navbar_background_color: var(--blue-dark);
-  --navbar_color: var(--white);
+  --primary: var(--blue);
+  --primary_light: var(--blue-light);
+  --primary_dark: var(--blue-dark);
+  --secondary: var(--yellow-ocre);
+  --dark_color: var(--onyx);
+  --light_color: var(--white);
 
-  --card_header_color: var(--blue-dark);
-  --card_header_font_color:var(--white);
-  --card_body_color: var(--white);
+
+  --navbar_background_color: var(--primary);
+  --navbar_color: var(--light_color);
+
+  --card_header_color: var(--primary);
+  --card_header_font_color:var(--light_color);
+  --card_body_color: var(--light_color);
   --card_body_font_color: var(--black);
 
   --button_color: var(--onyx);
-  --button_background_color: var(--yellow-ocre);
-  --button_border_color: var(--button_background_color);
+  --button_background_color: var(--secondary);
+  --button_border_color: var(--secondary);
 }
 
 #card_header{
-  background-color: var(--card_header_color);
-  color: var(--card_header_font_color);
+  background-color: var(--primary);
+  color: var(--light_color);
   font-size: 115%;
   font-weight: bold;
   text-align: center;
@@ -30,21 +39,53 @@
 
 #card_body{
   font-size: 17px;
-  background-color:var(--card_body_color);
+  background-color:var(--light_color);
   color: var(--card_body_font_color);
 }
 
 #navbar{
   background-color: var(--navbar_background_color);
-  color: var(--navbar_color);
+  color: var(--light_color);
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color:rgb(255, 254, 254);
+    color: var(--light_color);
 }
 
 #standard_button{
-  background-color: var(--button_background_color);
+  background-color: var(--secondary);
+  color: var(--dark_color);
+  border-color: var(--secondary);
+}
+
+#test_start_button{
+  background-color: var(--secondary);
+  color: var(--dark_color);
+  border-color: var(--secondary);
+}
+
+#image_button_button{
+  background-color: var(--secondary);
+  color: var(--dark_color);
+  border-color: var(--secondary);
+}
+
+
+#card_pregunta_encontrada_header{
+  background-color: var(--secondary);
+}
+
+#standard_button_form{
+  background-color: var(--secondary);
   color: var(--button_color);
-  border-color: var(--button_border_color);
+  border-color: var(--secondary);
+}
+
+#card_pregunta_test_header{
+  background-color: var(--secondary);
+  color: var(--dark_color);
+}
+
+#form_element .noUi-connect {
+  background: var(--primary);
 }

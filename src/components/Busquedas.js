@@ -1,12 +1,11 @@
 import React from "react"
 import '../assets/css/Busquedas.css'
 
-import {Container, Row, Col, Form, Card, Button} from 'react-bootstrap'
+import {Container, Row, Col} from 'react-bootstrap'
 
 import ScrollerResultados from './Busquedas/ScrollerResultados'
 import FormularioBusquedas from './Busquedas/FormularioBusquedas'
-import * as JSONRetriever from './Busquedas/JSONRetriever'
-import newEventGA from './Statics'
+import * as JSONRetriever from './Logic/JSONRetriever'
 
 class Busquedas extends React.Component{
   constructor(props) {
@@ -24,7 +23,6 @@ class Busquedas extends React.Component{
   }
 
   async realizarBusqueda(){
-    newEventGA('User', 'New search')
     const data = await JSONRetriever.buscarPreguntas(this.state.asignatura, this.state.palabras_clave, this.state.tipo_pregunta)
     this.setState({resultados: data.Preguntas})
     this.ScrollerResultadosReference.current.refreshPreguntasEncontradas()

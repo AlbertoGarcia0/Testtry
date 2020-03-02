@@ -8,6 +8,20 @@ import ProgressButton from 'react-progress-button'
 class CardPregunta extends React.Component{
   constructor(props){
     super(props)
+    console.log(this.props);
+    this.state = {
+      respuesta_visible: 'block',
+      estado_respuesta: 'Ocultar'
+    }
+    this.toggleVisible = this.toggleVisible.bind(this)
+  }
+
+  toggleVisible(){
+      if(this.state.respuesta_visible==='block'){
+        this.setState({respuesta_visible: 'none', estado_respuesta: 'Mostrar'})
+      }else{
+          this.setState({respuesta_visible: 'block', estado_respuesta: 'Ocultar'})
+      }
   }
 
   render(){
@@ -20,20 +34,13 @@ class CardPregunta extends React.Component{
       <Card.Body>
           <p>{this.props.enunciado}</p>
           <ol type = "A"> {options} </ol>
-
       </Card.Body>
       <Card.Footer>
-        <OverlayTrigger
-          key='top'
-          placement='top'
-          overlay={
-            <Tooltip>{this.props.correcta}</Tooltip>
-          }
-        >
-          <Button variant="secondary">Mostrar respuesta</Button>
-        </OverlayTrigger>
+        <Container id='container_respuesta'>
+          <Button variant="secondary" onClick={this.toggleVisible}>{this.state.estado_respuesta} respuesta</Button>
+          <label style={{display:this.state.respuesta_visible, margin: '10px'}}>La respuesta correcta es: {this.props.correcta} </label>
+        </Container>
       </Card.Footer>
-
     </Card>
     )
   }
@@ -45,8 +52,7 @@ class ScrollerResultados extends React.Component{
     super(props)
     this.state={
       numero_preguntas_encontradas: 0,
-      array_card_preguntas: [],
-      adding_components: false
+      array_card_preguntas: []
     }
   }
 

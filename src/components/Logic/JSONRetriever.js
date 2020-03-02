@@ -10,7 +10,7 @@ export async function buscarPreguntas(asignatura, palabras_clave, tipo_pregunta)
   if(response.status == 404){
     console.log('NOT FOUND');
   }else {
-    result_array   = await response.json()
+    result_array = await response.json()
   }
   return result_array
 }
@@ -35,6 +35,17 @@ export async function getAllNamesAsignaturas(){
     arr_nombres.push(asignaturas_dict[i].nombre_categoria)
   }
   return arr_nombres
+}
+
+export async function getPreguntasTest(num_preguntas, asignatura){
+  let preguntas = await buscarPreguntas(asignatura, '', '')
+  let array_preguntas = []
+  while (array_preguntas.length<num_preguntas) {
+    let random_pos = Math.floor(Math.random() * preguntas.Preguntas.length)
+    let preg = await preguntas.Preguntas.splice(random_pos, 1)
+    array_preguntas.push(preg)
+  }
+  return array_preguntas
 }
 
 export default function dummy_funct(){

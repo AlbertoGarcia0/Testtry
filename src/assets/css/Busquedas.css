@@ -11,16 +11,9 @@
 
 }
 
-#card_pregunta_encontrada_header{
-  background-color: var(--button_background_color);
-}
-
 #standard_button_form{
   width: 25vw;
   margin-top: 10px;
-  background-color: var(--button_background_color);
-  color: var(--button_color);
-  border-color: var(--button_border_color);
 }
 
 #card_pregunta_encontrada{
@@ -71,4 +64,8 @@
     margin-top: 0px;
   }
 
+  #container_respuesta{
+    display: flex;
+    flex-direction: row;
+  }
 }

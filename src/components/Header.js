@@ -2,18 +2,16 @@ import React from "react"
 import '../assets/css/Header.css';
 import logo from '../assets/img/Logo.png';
 
-import {Navbar, Nav, Form, Button} from 'react-bootstrap'
+import {Navbar, Nav} from 'react-bootstrap'
 import Fade from 'react-reveal/Fade';
-import {Switch, Route, Link, Redirect} from "react-router-dom";
+import {Switch, Route, Redirect} from "react-router-dom";
 
 import Dashboard from './Dashboard'
 import Test from './Test'
 import Busquedas from './Busquedas'
 import NotFoundView from './NotFound'
-import viewPageGA from './Statics'
 
 function notFound(){
-  viewPageGA('404')
   return(
     <Fade>
       <NotFoundView/>
@@ -22,7 +20,6 @@ function notFound(){
 }
 
 function dashboard_view(){
-  viewPageGA('Dashboard')
   return(
       <Fade>
         <Dashboard/>
@@ -31,7 +28,6 @@ function dashboard_view(){
 }
 
 function busqueda_view(){
-  viewPageGA('Busquedas')
   return(
       <Fade>
         <Busquedas/>
@@ -40,7 +36,6 @@ function busqueda_view(){
 }
 
 function test_view(){
-  viewPageGA('Test')
   return(
       <Fade>
         <Test/>

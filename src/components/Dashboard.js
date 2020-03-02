@@ -8,7 +8,7 @@ import ReactPlaceholder from 'react-placeholder';
 import QuestionPie from './Dashboard/QuestionCountPie.js'
 import ImageButton from './Dashboard/ImageButton.js'
 import WebInfo from './Dashboard/WebInfo.js'
-import * as JSONRetriever from './Busquedas/JSONRetriever'
+import * as JSONRetriever from './Logic/JSONRetriever'
 
 async function readQuestionInfo(){
   let asig = await JSONRetriever.getAllAsignaturas()
