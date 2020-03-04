@@ -15,17 +15,22 @@
 #Dashboard{
   margin-top: 100px;
   margin-bottom: 100px;
+
 }
 
 #image_button_col{
   display: flex;
   align-items: center;
   flex-direction: column;
+  flex-shrink: auto;
 }
 
+#web_info_card{
+  border-radius: 3px;
+}
 /* For smartphone: */
-.big-logo {
-  max-width:5vh;
+#big_logo {
+  max-width:40vw;
 }
 
 #image_button{
@@ -38,19 +43,20 @@
   padding-top: 5vh;
   padding-left: 3vh;
   margin-bottom: 10px;
+  background-color: white;
 }
 
 /* For desktop: */
 @media only screen and (min-width: 768px) {
 
 
-  .big-logo {
-    max-width:5vh;
+  #big_logo {
+    max-width:10vh;
   }
 
   #pie_card{
     width: 35rem;
-    height: 25rem;
+    height: auto;
   }
 
   #image_button{
@@ -60,10 +66,14 @@
   }
 
   #web_info_card{
-    width: auto;
-    height: 25rem;
+    max-width: 40vw;
+    height: auto;
     padding: 5vh;
     margin-bottom: 10px;
+  }
+
+  #block_info{
+    margin-left: 15px;
   }
 
   #card_body{

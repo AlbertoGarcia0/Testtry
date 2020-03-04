@@ -61,7 +61,7 @@ class Test extends React.Component{
                 ref={this.PanelEstadoReference}
                 estado_padre={this.state}/>
             </Col>
-            <Col>
+            <Col md={4}>
                 <ContainerPreguntas
                   ref={this.PanelPreguntaReference}
                   estado_padre={this.state}

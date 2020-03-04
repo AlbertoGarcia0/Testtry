@@ -94,16 +94,13 @@ font-size: 1.6rem!important;
 
 #test_estado{
   margin: auto;
-  visibility: hidden;
-  margin-left: 0px;
-  width: 0vw;
-  height: 0vh;
+  visibility: collapse;
 }
 
 #container_preguntas{
   margin: auto;
   padding-top: 10px;
-  margin-left: -15px;
+  margin-top: 10px;
   width: 100vw;
   height: 80vh;
 }

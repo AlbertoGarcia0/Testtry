@@ -55,9 +55,9 @@ function Header(){
          <Navbar.Collapse id="responsive-navbar-nav">
            <Nav className="mr-auto" >
              <Nav.Link href='#/'>Inicio</Nav.Link>
+             <Nav.Link href='#/test'>Test</Nav.Link>
              <Nav.Link href='#/busqueda'>Busqueda</Nav.Link>
-             <Nav.Link href='#/test'>Nuevo test</Nav.Link>
-             <Nav.Link href='#/about'>About</Nav.Link>
+             <Nav.Link href='#/colaborar'>Colaborar</Nav.Link>
              <Nav.Link href='#/404'>404</Nav.Link>
            </Nav>
          </Navbar.Collapse>

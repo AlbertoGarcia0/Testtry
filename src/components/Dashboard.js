@@ -48,9 +48,24 @@ class Dashboard extends React.Component{
          </Col>
         </Row>
         <Row>
-           <Col md="auto"> <ImageButton title='Colaborar' text='Enviar preguntas.' btn_text='Enviar' /> </Col>
-           <Col md="auto"> <ImageButton title='Nuevo Test' text='Realizar nueva prueba.' btn_text='Test'/> </Col>
-           <Col md="auto"> <ImageButton title='Repo' text='Enlace al repositorio.' btn_text='Github'/> </Col>
+           <Col md="auto"> <ImageButton
+             title='Colaborar'
+             text='Enviar preguntas.'
+             btn_text='Enviar'
+             hrefer={'#/colaborar'} /> </Col>
+           <Col md="auto">
+             <ImageButton
+               title='Nuevo Test'
+               text='Realizar nueva prueba.'
+               btn_text='Test'
+               hrefer={'#/test'}/> </Col>
+           <Col md="auto">
+             <ImageButton
+               title='Repo'
+               text='Enlace al repositorio.'
+               btn_text='Github'
+               hrefer={'https://github.com/eduardez/Testtry/tree/master'}
+               targt={'_blank'}/> </Col>
         </Row>
       </Container>
     )

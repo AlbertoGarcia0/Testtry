@@ -15,7 +15,13 @@ class ImageButton extends React.Component {
           <Card.Body id='card_body' >
             <Col id='image_button_col'>
               <Card.Text >{this.props.text}</Card.Text>
-              <Button variant="primary" id='image_button_button' >{this.props.btn_text}</Button>
+              <Button
+                variant="primary"
+                id='image_button_button'
+                href={this.props.hrefer}
+                target={this.props.targt}>
+                {this.props.btn_text}
+              </Button>
             </Col>
           </Card.Body>
       </Card>

@@ -15,7 +15,8 @@ class PanelPregunta extends React.Component{
       correcta: this.props.correcta,
       isCorrecta: false,
       header_bg: '',
-      footer_visibility: 'none'
+      footer_visibility: 'none',
+      bloquear_radio: false
     }
     this.onChangeRadio = this.onChangeRadio.bind(this)
     this.corregir = this.corregir.bind(this)
@@ -30,15 +31,16 @@ class PanelPregunta extends React.Component{
 
   restart(){
     this.setState({
-    marcada: '',
-    correcta: this.props.correcta,
-    isCorrecta: false,
-    header_bg: '',
-    footer_visibility: 'none'})
+      marcada: '',
+      correcta: this.props.correcta,
+      isCorrecta: false,
+      header_bg: '',
+      footer_visibility: 'none',
+      bloquear_radio: false})
   }
 
   corregir(){
-    this.setState({footer_visibility:'block'})
+    this.setState({footer_visibility:'block', bloquear_radio:true})
     if(this.isCorrecta()){
       this.setState({header_bg:'rgb(28, 162, 0)'})
     }else {
@@ -71,6 +73,7 @@ class PanelPregunta extends React.Component{
               value={opcion}
               checked={this.state.marcada === opcion}
               onChange={this.onChangeRadio}
+              disabled={this.state.bloquear_radio}
             />
             <span>{opcion}</span>
           </label>
