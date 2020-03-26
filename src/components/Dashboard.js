@@ -31,7 +31,9 @@ class Dashboard extends React.Component{
       info_asignaturas: [[],[]]
     }
   }
+
   async componentDidMount(){
+    window.scrollTo(0, 0)
     this.setState({info_asignaturas:await readQuestionInfo()})
     this.setState({ready: true})
   }

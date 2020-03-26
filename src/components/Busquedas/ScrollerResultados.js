@@ -4,11 +4,11 @@ import '../../assets/css/Busquedas.css'
 import {Row, Col, Container, Card, OverlayTrigger, Tooltip, Button} from 'react-bootstrap'
 import LazyLoad from 'react-lazyload';
 import ProgressButton from 'react-progress-button'
+import Highlighter from "react-highlight-words"
 
 class CardPregunta extends React.Component{
   constructor(props){
     super(props)
-    console.log(this.props);
     this.state = {
       respuesta_visible: 'block',
       estado_respuesta: 'Ocultar'
@@ -26,14 +26,25 @@ class CardPregunta extends React.Component{
 
   render(){
     const options = this.props.respuestas.map(function(e){
-      return  <li>{e}</li>
-    })
+      return (
+        <li>
+          <Highlighter
+              highlightClassName="found_words"
+              searchWords={this.props.palabras_buscadas}
+              autoEscape={true}
+              textToHighlight={e}/>
+        </li>
+      )}, this)
     return(
     <Card id='card_pregunta_encontrada'>
       <Card.Header id='card_pregunta_encontrada_header'>Pregunta {this.props.numero}</Card.Header>
       <Card.Body>
-          <p>{this.props.enunciado}</p>
-          <ol type = "A"> {options} </ol>
+        <Highlighter
+           highlightClassName="found_words"
+           searchWords={this.props.palabras_buscadas}
+           autoEscape={true}
+           textToHighlight={this.props.enunciado}/>
+        <ol type = "A"> {options} </ol>
       </Card.Body>
       <Card.Footer>
         <Container id='container_respuesta'>
@@ -80,7 +91,12 @@ class ScrollerResultados extends React.Component{
                       <React.Fragment>
                        {this.state.array_card_preguntas.map(pregunta => (
                          <React.Fragment key={pregunta.props.numero}>
-                           <CardPregunta numero={pregunta.props.numero} enunciado={pregunta.props.enunciado} respuestas={pregunta.props.respuestas} correcta={pregunta.props.correcta}/>
+                           <CardPregunta
+                             numero={pregunta.props.numero}
+                             enunciado={pregunta.props.enunciado}
+                             respuestas={pregunta.props.respuestas}
+                             correcta={pregunta.props.correcta}
+                             palabras_buscadas={this.props.estado.palabras_clave}/>
                          </React.Fragment>
                        ))}
                      </React.Fragment>

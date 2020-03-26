@@ -109,7 +109,7 @@ class FormularioTest extends React.Component{
             <Container id='busqueda_card_body_container' fluid='true'>
               <ReactPlaceholder type='text' rows={7} ready={this.state.ready} >
 
-                <Select id='form_element' options={this.state.asignaturas_disponibles}
+                <Select id='form_element_dropdown' options={this.state.asignaturas_disponibles}
                   closeMenuOnSelect={false}
                   components={animatedComponents}
                   placeholder='Seleccionar asignaturas'

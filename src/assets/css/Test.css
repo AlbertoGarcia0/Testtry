@@ -109,6 +109,11 @@ font-size: 1.6rem!important;
   width: 50vw!important;
 }
 
+#form_element_dropdown{
+  margin-bottom:  10px;
+  width: 85vw;
+  z-index: 99;
+}
 /* For desktop: */
 @media only screen and (min-width: 768px) {
   #component_test{
@@ -116,6 +121,11 @@ font-size: 1.6rem!important;
     padding-top: 100px;
     max-width: 100vw;
     max-height: 80vh;
+  }
+
+  #form_element_dropdown{
+    width: 25vw;
+    margin-bottom: 10px;
   }
 
   #test_config{

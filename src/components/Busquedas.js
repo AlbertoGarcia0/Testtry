@@ -21,10 +21,21 @@ class Busquedas extends React.Component{
     this.realizarBusqueda = this.realizarBusqueda.bind(this)
     this.ScrollerResultadosReference = React.createRef()
   }
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
 
   async realizarBusqueda(){
-    const data = await JSONRetriever.buscarPreguntas(this.state.asignatura, this.state.palabras_clave, this.state.tipo_pregunta)
-    this.setState({resultados: data.Preguntas})
+    let split_palabras
+    try {
+      split_palabras = this.state.palabras_clave.split(' ')
+    } catch (e) {
+      var text = document.getElementById("form_element_palabras_clave").value
+      split_palabras = text.split(' ')
+    }
+    this.setState({palabras_clave: split_palabras})
+    const data = await JSONRetriever.buscarPreguntas(this.state.asignatura, split_palabras)
+    this.setState({resultados: data})
     this.ScrollerResultadosReference.current.refreshPreguntasEncontradas()
   }
 

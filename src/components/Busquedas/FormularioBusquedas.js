@@ -23,10 +23,10 @@ class FormularioBusquedas extends React.Component{
     super(props);
     this.state = {
       asignaturas_disponibles: [],
+      palabras_busqueda: [],
       ready: false
     }
     this.changeAsignatura = this.changeAsignatura.bind(this);
-    this.changeTipoPregunta = this.changeTipoPregunta.bind(this);
     this.changePalabrasClave = this.changePalabrasClave.bind(this);
 
   }
@@ -40,11 +40,9 @@ class FormularioBusquedas extends React.Component{
   changeAsignatura(e){
     this.props.estado.asignatura = e.value
   }
-  changeTipoPregunta(e){
-    this.props.estado.tipo_pregunta= e.target.value
-  }
+
   changePalabrasClave(e){
-    this.props.estado.palabras_clave= e.target.value
+    this.props.estado.palabras_clave = e.target.value
   }
 
   render(){
@@ -55,13 +53,25 @@ class FormularioBusquedas extends React.Component{
           <Card.Body id='busqueda_card_body'>
             <Container id='busqueda_card_body_container' fluid='true'>
               <ReactPlaceholder type='text' rows={7} ready={this.state.ready} >
-                <Select id='form_element' options={this.state.asignaturas_disponibles}
+
+              <Select id='form_element'
+                options={this.state.asignaturas_disponibles}
                 closeMenuOnSelect={false}
                 components={animatedComponents}
                 placeholder='Seleccionar asignatura'
                 onChange={this.changeAsignatura}/>
-                <Form.Control disabled={true} placeholder="Palabras clave" id='form_element' onChange={this.changePalabrasClave}/>
-                <Button onClick={this.props.realizarBusqueda} id='standard_button_form' >Buscar</Button>
+
+
+              <Form.Control
+                ref='form_asignatura'
+                placeholder="Palabras clave"
+                id='form_element_palabras_clave'
+                onChange={this.changePalabrasClave}/>
+
+              <Button
+                onClick={this.props.realizarBusqueda}
+                id='standard_button_form' >Buscar</Button>
+
               </ReactPlaceholder>
             </Container>
           </Card.Body>

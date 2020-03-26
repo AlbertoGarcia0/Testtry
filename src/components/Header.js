@@ -47,7 +47,7 @@ function Header(){
   return(
     <div id="inicio">
        <Navbar collapseOnSelect expand="lg" fixed="top" id='navbar'>
-         <Navbar.Brand id='navbar' href='#/'>
+         <Navbar.Brand id='navbar_logo' href='#/'>
            <img src={logo} style={{ width: '40px'}}/>
            Testtry
          </Navbar.Brand>

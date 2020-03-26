@@ -36,11 +36,7 @@
   .menu{
     background-color:  #282c34;
   }
-
-  .navClass{
-   color: var(--urobilin);
-  }
-
+  
   .navbar-light .navbar-nav .nav-link {
       padding-left: 10px;
   }

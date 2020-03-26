@@ -42,6 +42,10 @@ class Test extends React.Component{
   corregirTest(){
     this.PanelPreguntaReference.current.corregirTest()
   }
+  
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
 
   actualizarRespondidas(){
     this.setState({preguntas_respondidas: this.state.preguntas_respondidas + 1})

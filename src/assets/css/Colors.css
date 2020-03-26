@@ -14,19 +14,6 @@
   --secondary: var(--yellow-ocre);
   --dark_color: var(--onyx);
   --light_color: var(--white);
-
-
-  --navbar_background_color: var(--primary);
-  --navbar_color: var(--light_color);
-
-  --card_header_color: var(--primary);
-  --card_header_font_color:var(--light_color);
-  --card_body_color: var(--light_color);
-  --card_body_font_color: var(--black);
-
-  --button_color: var(--onyx);
-  --button_background_color: var(--secondary);
-  --button_border_color: var(--secondary);
 }
 
 #card_header{
@@ -37,22 +24,38 @@
   text-align: center;
 }
 
+.found_words {
+  background-color: #ffd54f;
+}
+
 #card_body{
   font-size: 17px;
   background-color:var(--light_color);
-  color: var(--card_body_font_color);
+  color: var(--dark_color);
 }
 
-#navbar{
-  background-color: var(--navbar_background_color);
+#navbar_logo{
   color: var(--light_color);
 }
-
-.navbar-light .navbar-nav .nav-link {
-    color: var(--light_color);
+#navbar{
+  background-color: var(--primary);
+  color: var(--light_color);
+  -webkit-box-shadow: 0 8px 6px -6px #6e6e6e;
+  -moz-box-shadow: 0 8px 6px -6px #6e6e6e;
+  box-shadow: 0 8px 6px -3px #6e6e6e;
 }
 
-#standard_button{
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:active,
+.navbar-light .navbar-nav .nav-link.active{
+    color: var(--light_color);
+}
+.navbar-light .navbar-nav .nav-link:hover{
+  color: var(--secondary);
+}
+
+{
   background-color: var(--secondary);
   color: var(--dark_color);
   border-color: var(--secondary);

@@ -1,10 +1,8 @@
 
 const base_url = 'https://eduardez.github.io/Testtry-Database-Manager/APP_TESTS/TesttryDB/'
 
-export async function buscarPreguntas(asignatura, palabras_clave, tipo_pregunta){
+export async function getPreguntas(asignatura, palabras_clave, tipo_pregunta){
   var result_array = JSON.parse('{"Preguntas":[]}')
-
-  console.log('Asignatura: ' + asignatura + ', palabras_clave: ' + palabras_clave + ', tipo_pregunta: ' + tipo_pregunta)
   let url = base_url + asignatura +'/preguntas.json'
   let response = await fetch(url);
   if(response.status == 404){
@@ -13,6 +11,36 @@ export async function buscarPreguntas(asignatura, palabras_clave, tipo_pregunta)
     result_array = await response.json()
   }
   return result_array
+}
+
+export async function buscarPreguntas(asignatura, palabras){
+  let aux = await getPreguntas(asignatura, '', '')
+  let preguntas = aux.Preguntas
+  let array_preguntas_encontradas = []
+  for (var i = 0; i < preguntas.length; i++) {
+    if( await isWordContained(preguntas[i], palabras)){
+      array_preguntas_encontradas.push(preguntas[i])
+    }
+  }
+  return array_preguntas_encontradas
+}
+
+async function isWordContained(pregunta, arr_palabra){
+  let isContained = false
+  let arr_all_strings = []
+  arr_all_strings.push(pregunta.enunciado.toLowerCase())
+  for (var i = 0; i < pregunta.respuestas.length; i++) {
+    arr_all_strings.push(pregunta.respuestas[i].toLowerCase())
+  }
+  for (var i = 0; i < arr_palabra.length; i++) {
+    for (var j = 0; j < arr_all_strings.length; j++) {
+      if(arr_all_strings[j].includes(arr_palabra[i].toLowerCase())){
+        isContained = true
+        break
+      }
+    }
+  }
+  return isContained
 }
 
 export async function getAllAsignaturas(){
@@ -38,7 +66,7 @@ export async function getAllNamesAsignaturas(){
 }
 
 export async function getPreguntasTest(num_preguntas, asignatura){
-  let preguntas = await buscarPreguntas(asignatura, '', '')
+  let preguntas = await getPreguntas(asignatura, '', '')
   let array_preguntas = []
   while (array_preguntas.length<num_preguntas) {
     let random_pos = Math.floor(Math.random() * preguntas.Preguntas.length)
