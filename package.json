@@ -15,6 +15,7 @@
     "boron": "^0.2.3",
     "boron-react-modal": "0.0.7",
     "chart.js": "^2.9.3",
+    "firebase": "^7.14.6",
     "node-sass": "^4.13.1",
     "nouislider": "^14.1.1",
     "nouislider-react": "^3.3.7",

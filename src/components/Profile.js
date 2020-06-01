@@ -18,7 +18,7 @@ function get_gato(){
 }
 
 
-class NotFoundView extends React.Component {
+class Profile extends React.Component {
   constructor(props) {
     super(props)
     get_gato()
@@ -33,7 +33,7 @@ class NotFoundView extends React.Component {
                 <Card.Img  id='cat_image'/>
                 <Card.Body>
                   <Card.Text>
-                    La página a la que has intentado acceder no esta disponible, pero aqui tienes un gato.
+                    holas.
                   </Card.Text>
               </Card.Body>
               <Card.Footer>
@@ -54,4 +54,4 @@ class NotFoundView extends React.Component {
   }
 }
 
-export default NotFoundView
+export default Profile

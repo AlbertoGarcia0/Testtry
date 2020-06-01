@@ -5,7 +5,16 @@ import '../../assets/css/Dashboard.css';
 import { Pie } from 'react-chartjs-2';
 import Card from 'react-bootstrap/Card'
 
-const colores_bonicos = ['#E83A8C','#4C73FF','#3AE86A','#FFDB2E','#FF5229']
+const colores_bonicos = [
+  '#E83A8C',
+  '#4C73FF',
+  '#3AE86A',
+  '#FFDB2E',
+  '#AFDD38',
+  '#FF5229',
+  '#692BC6',
+  '#2F9AB6'
+]
 
 
 // ---------------- Colores random para las asignaturas -----------------
