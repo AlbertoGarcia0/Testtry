@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/Testtry/static/css/main.0371a70a.chunk.css",
-    "main.js": "/Testtry/static/js/main.e35165dd.chunk.js",
-    "main.js.map": "/Testtry/static/js/main.e35165dd.chunk.js.map",
+    "main.css": "/Testtry/static/css/main.b425da22.chunk.css",
+    "main.js": "/Testtry/static/js/main.17f9972c.chunk.js",
+    "main.js.map": "/Testtry/static/js/main.17f9972c.chunk.js.map",
     "runtime-main.js": "/Testtry/static/js/runtime-main.66bc3854.js",
     "runtime-main.js.map": "/Testtry/static/js/runtime-main.66bc3854.js.map",
-    "static/css/2.2296b004.chunk.css": "/Testtry/static/css/2.2296b004.chunk.css",
-    "static/js/2.eb7330fb.chunk.js": "/Testtry/static/js/2.eb7330fb.chunk.js",
-    "static/js/2.eb7330fb.chunk.js.map": "/Testtry/static/js/2.eb7330fb.chunk.js.map",
+    "static/css/2.cdf7644c.chunk.css": "/Testtry/static/css/2.cdf7644c.chunk.css",
+    "static/js/2.95b34838.chunk.js": "/Testtry/static/js/2.95b34838.chunk.js",
+    "static/js/2.95b34838.chunk.js.map": "/Testtry/static/js/2.95b34838.chunk.js.map",
     "index.html": "/Testtry/index.html",
-    "precache-manifest.e7b0c0e36669c8c1c0e7158181fd83d6.js": "/Testtry/precache-manifest.e7b0c0e36669c8c1c0e7158181fd83d6.js",
+    "precache-manifest.5ea5582d509df2783c225dd41dada4f7.js": "/Testtry/precache-manifest.5ea5582d509df2783c225dd41dada4f7.js",
     "service-worker.js": "/Testtry/service-worker.js",
-    "static/css/2.2296b004.chunk.css.map": "/Testtry/static/css/2.2296b004.chunk.css.map",
-    "static/css/main.0371a70a.chunk.css.map": "/Testtry/static/css/main.0371a70a.chunk.css.map",
-    "static/js/2.eb7330fb.chunk.js.LICENSE.txt": "/Testtry/static/js/2.eb7330fb.chunk.js.LICENSE.txt",
+    "static/css/2.cdf7644c.chunk.css.map": "/Testtry/static/css/2.cdf7644c.chunk.css.map",
+    "static/css/main.b425da22.chunk.css.map": "/Testtry/static/css/main.b425da22.chunk.css.map",
+    "static/js/2.95b34838.chunk.js.LICENSE.txt": "/Testtry/static/js/2.95b34838.chunk.js.LICENSE.txt",
     "static/media/LogoBig.png": "/Testtry/static/media/LogoBig.e7637087.png",
     "static/media/logo.jpg": "/Testtry/static/media/logo.c23ddc5d.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.66bc3854.js",
-    "static/css/2.2296b004.chunk.css",
-    "static/js/2.eb7330fb.chunk.js",
-    "static/css/main.0371a70a.chunk.css",
-    "static/js/main.e35165dd.chunk.js"
+    "static/css/2.cdf7644c.chunk.css",
+    "static/js/2.95b34838.chunk.js",
+    "static/css/main.b425da22.chunk.css",
+    "static/js/main.17f9972c.chunk.js"
   ]
 }
