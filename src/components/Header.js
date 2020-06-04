@@ -39,10 +39,10 @@ function busqueda_view(){
   )
 }
 
-function profile_view(){
+function profile_view(firebase_auth){
   return(
       <Fade>
-        <Profile/>
+        <Profile firebase_auth={firebase_auth}/>
       </Fade>
   )
 }
@@ -137,7 +137,9 @@ class Header extends React.Component{
          <Route exact path="/" component={dashboard_view}/>
          <Route exact path="/test" component={test_view}/>
          <Route path="/busqueda" component={busqueda_view}/>
-         <Route path="/profile" component={profile_view}/>
+         {this.state.user_logged && //Si no esta autenticado, no puede acceder al perfil
+         <Route path="/profile" render={() => <Profile user={this.state.user} />}/>
+          }
          <Route path="/404" component={notFound}/>
          <Redirect to="/404" />
       </Switch>

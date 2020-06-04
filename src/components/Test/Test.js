@@ -5,7 +5,7 @@ import {Container, Col, Row} from 'react-bootstrap'
 
 import FormularioTest from './TestConfig'
 import EstadoTest from './TestEstadoActual'
-import ContainerPreguntas from './ContainerPreguntas'
+import ContainerPreguntas from './/ContainerPreguntas'
 
 import * as JSONRetriever from '../Logic/JSONRetriever'
 
