@@ -27,28 +27,21 @@ class NotFoundView extends React.Component {
   render(){
     return(
       <Container id='not_found_container'>
-          <Row>
-            <Card style={{ width: '48rem', margin: '10vh'}}>
-              <Card.Header>404 Not Found </Card.Header>
-                <Card.Img  id='cat_image'/>
-                <Card.Body>
-                  <Card.Text>
-                    La página a la que has intentado acceder no esta disponible, pero aqui tienes un gato.
-                  </Card.Text>
-              </Card.Body>
-              <Card.Footer>
-                <Button
-                  id='standard_button_form'
-                  href={' '}
-                  style={{width: '10vw', margin: 'auto'}}>Inicio</Button>
-              </Card.Footer>
-            </Card>
-          </Row>
-        <Row>
-
-
-      </Row>
-
+        <Card id='card_notfound' style={{ width: '48rem', margin: '10vh'}}>
+          <Card.Header>404 Not Found </Card.Header>
+            <Card.Img  id='cat_image'/>
+            <Card.Body>
+              <Card.Text>
+                La página a la que has intentado acceder no esta disponible, pero aqui tienes un gato (via <a href='https://thecatapi.com/' target='_blank'>thecatapi</a>).
+              </Card.Text>
+          </Card.Body>
+          <Card.Footer>
+            <Button
+              id='standard_button_form'
+              href={' '}
+              style={{width: '10vw', margin: 'auto'}}>Inicio</Button>
+          </Card.Footer>
+        </Card>
     </Container>
     )
   }

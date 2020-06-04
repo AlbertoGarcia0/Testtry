@@ -1,15 +1,15 @@
 import React from "react"
-import '../assets/css/Test.css'
+import '../../assets/css/Test.css'
 
 import {Container, Col, Row} from 'react-bootstrap'
 
-import FormularioTest from './Test/TestConfig'
-import EstadoTest from './Test/TestEstadoActual'
-import ContainerPreguntas from './Test/ContainerPreguntas'
+import FormularioTest from './TestConfig'
+import EstadoTest from './TestEstadoActual'
+import ContainerPreguntas from './ContainerPreguntas'
 
-import * as JSONRetriever from './Logic/JSONRetriever'
+import * as JSONRetriever from '../Logic/JSONRetriever'
 
-class Test extends React.Component{
+export class Test extends React.Component{
   constructor(props){
     super(props)
     this.state = {
@@ -56,7 +56,7 @@ class Test extends React.Component{
     return(
         <Container id='component_test' fluid='true'>
           <Row top="xs">
-            <Col md={4}>
+            <Col md={4} id='test_card_options'>
               <FormularioTest id='test_config'
                 estado_padre={this.state}
                 start_test={this.startTest}
@@ -78,4 +78,3 @@ class Test extends React.Component{
   }
 }
 
-export default Test

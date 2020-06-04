@@ -1,13 +1,14 @@
 import React from "react"
-import '../assets/css/Busquedas.css'
+import '../../assets/css/Busquedas.css'
 
-import {Container, Row, Col} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 
-import ScrollerResultados from './Busquedas/ScrollerResultados'
-import FormularioBusquedas from './Busquedas/FormularioBusquedas'
-import * as JSONRetriever from './Logic/JSONRetriever'
+import ScrollerResultados from './ScrollerResultados'
+import FormularioBusquedas from './FormularioBusquedas'
 
-class Busquedas extends React.Component{
+import * as JSONRetriever from '../Logic/JSONRetriever'
+
+export class Busquedas extends React.Component{
   constructor(props) {
     super(props);
     this.state ={
@@ -16,7 +17,6 @@ class Busquedas extends React.Component{
       asignatura: '',
       palabras_clave: '',
       tipo_pregunta:''
-
     }
     this.realizarBusqueda = this.realizarBusqueda.bind(this)
     this.ScrollerResultadosReference = React.createRef()
@@ -42,17 +42,9 @@ class Busquedas extends React.Component{
   render(){
     return(
       <Container id='component_busqueda' fluid='true'>
-        <Row top="xs">
-          <Col md={4}>
             <FormularioBusquedas realizarBusqueda={this.realizarBusqueda} estado={this.state}/>
-          </Col>
-          <Col>
-              <ScrollerResultados ref={this.ScrollerResultadosReference} estado={this.state}/>
-          </Col>
-        </Row>
+            <ScrollerResultados ref={this.ScrollerResultadosReference} estado={this.state}/>
       </Container>
     )
   }
 }
-
-export default Busquedas

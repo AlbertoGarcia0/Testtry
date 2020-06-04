@@ -3,17 +3,17 @@ import '../assets/css/Header.css';
 import logo from '../assets/img/Logo.png';
 import no_profile from '../assets/img/no_profile.png'
 
-import {Navbar, Nav, Button} from 'react-bootstrap'
+import {Navbar, Nav, Button, Container} from 'react-bootstrap'
 import Fade from 'react-reveal/Fade';
 import {Switch, Route, Redirect} from "react-router-dom";
 
-import firebase from 'firebase'
+import {FB_Authentication, FB_isUserLogged, FB_getCurrUser} from './Firebase'
 
-import Dashboard from './Dashboard'
-import Test from './Test'
-import Busquedas from './Busquedas'
+import {Dashboard} from './Dashboard/index'
+import {Test} from './Test/index'
+import {Busquedas} from './Busquedas/index'
 import NotFoundView from './NotFound'
-import Profile from './Profile'
+import {Profile} from './Profile/index'
 
 function notFound(){
   return(
@@ -62,60 +62,48 @@ class Header extends React.Component{
       user_logged: false,
       user: null,
       log_button_text: 'Log In',
-      log_button_dst: null,
       url_profile_img: no_profile
     }
-    this.updateUserLogged = this.updateUserLogged.bind(this)
-    this.startAuthentication = this.startAuthentication.bind(this)
-    this.logOut = this.logOut.bind(this)
+    this.startAuth = this.startAuth.bind(this)
+    this.updateUserData = this.updateUserData.bind(this)
 
-    this.props.firebase_auth.onAuthStateChanged(function(user) {
-      this.setState({ user: user })
-      this.updateUserLogged()
-    });
   }
 
   async componentDidMount(){
-    await this.updateUserLogged()
+    //Listener para cuando el usuario logea o desloguea
+    const self = this
+    this.props.firebase_auth.onAuthStateChanged((user) => {
+      if (user) {
+        self.setState({user: user})
+        self.updateUserData(true)
+      } else {
+        self.updateUserData(false)
+      }
+    });
   }
 
-  updateUserLogged(){
-    console.log(this.state.user)
-    if(this.state.user != null){
+  async startAuth(){
+    const is_logged = await FB_Authentication(this.state.user_logged, this.props.firebase_auth)
+    this.updateUserData(is_logged)
+  }
+
+  async updateUserData(is_logged){
+    if(is_logged){
+      const user = await FB_getCurrUser(this.props.firebase_auth)
       this.setState({
-        url_profile_img: this.props.firebase_auth.currentUser.photoURL,
+        url_profile_img: user.photoURL,
         log_button_text: 'Log Out',
-        log_button_dst: this.logOut,
-        autenticado: true
+        user_logged: true
       })
     }else{
       this.setState({
         url_profile_img: no_profile,
         log_button_text: 'Log In',
-        log_button_dst: this.startAuthentication,
-        autenticado: false
+        user_logged: false
       })
     }
   }
-
-  startAuthentication(){
-    const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-    this.props.firebase_auth.setPersistence(firebase.auth.Auth.Persistence.NONE)
-    .then(function() {
-      return this.props.firebase_auth.signInWithPopup(googleAuthProvider);
-    })
-    .catch(function(error) {
-    });
-
-    this.updateUserLogged()
-  }
-
-  async logOut(){
-      await this.props.firebase_auth.signOut()
-      this.updateUserLogged()
-      alert('adis')
-  }
-
+  
   render(){
     return(
     <div id="inicio">
@@ -133,14 +121,16 @@ class Header extends React.Component{
              <Nav.Link href='#/colaborar'>Colaborar</Nav.Link>
              <Nav.Link href='#/404'>404</Nav.Link>
            </Nav>
-          <a href='#/profile'>
-            <img   
-              className='profile_image' 
-              src={this.state.url_profile_img} 
-              style={{width:'3rem'}}
-              />
-          </a>
-          <Button className='login_button' onClick={this.state.log_button_dst}> {this.state.log_button_text} </Button>
+          <Container id='profile_login_container'>
+            <a href='#/profile'>
+              <img   
+                id='profile_image' 
+                src={this.state.url_profile_img} 
+                style={{width:'3rem'}}
+                />
+            </a>
+            <Button id='login_button' onClick={this.startAuth}> {this.state.log_button_text} </Button>
+          </Container>
          </Navbar.Collapse>
        </Navbar>
        <Switch>

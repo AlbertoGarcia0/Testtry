@@ -1,5 +1,5 @@
 import React from "react"
-import '../assets/css/NotFound.css';
+import '../../assets/css/Profile.css';
 
 import {Card, Container, Button, Row} from 'react-bootstrap'
 
@@ -18,7 +18,7 @@ function get_gato(){
 }
 
 
-class Profile extends React.Component {
+export class Profile extends React.Component {
   constructor(props) {
     super(props)
     get_gato()
@@ -53,5 +53,3 @@ class Profile extends React.Component {
     )
   }
 }
-
-export default Profile

@@ -6,6 +6,8 @@ import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
 import ReactPlaceholder from 'react-placeholder';
 
+
+import SwitchResp from './SwitchMostrarResp'
 import * as JSONRetriever from '../Logic/JSONRetriever'
 
 async function getAsignaturas(){
@@ -48,7 +50,7 @@ class FormularioBusquedas extends React.Component{
   render(){
     const animatedComponents = makeAnimated();
     return(
-      <Card>
+      <Card id='card_formulario_busqueda'>
         <Card.Header id='card_header'>Busqueda de preguntas en la BBDD</Card.Header>
           <Card.Body id='busqueda_card_body'>
             <Container id='busqueda_card_body_container' fluid='true'>
@@ -67,6 +69,8 @@ class FormularioBusquedas extends React.Component{
                 placeholder="Palabras clave"
                 id='form_element_palabras_clave'
                 onChange={this.changePalabrasClave}/>
+
+              <SwitchResp estado={this.state} />
 
               <Button
                 onClick={this.props.realizarBusqueda}

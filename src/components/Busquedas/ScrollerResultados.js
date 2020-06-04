@@ -1,26 +1,45 @@
 import React from "react"
 import '../../assets/css/Busquedas.css'
 
-import {Row, Col, Container, Card, OverlayTrigger, Tooltip, Button} from 'react-bootstrap'
+import {Row, Col, Container, Card, Button} from 'react-bootstrap'
 import LazyLoad from 'react-lazyload';
-import ProgressButton from 'react-progress-button'
 import Highlighter from "react-highlight-words"
 
 class CardPregunta extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      respuesta_visible: 'block',
-      estado_respuesta: 'Ocultar'
+      respuesta_visible: 'none',
+      estado_respuesta: 'Mostrar'
     }
     this.toggleVisible = this.toggleVisible.bind(this)
+  }
+
+  componentDidMount(){
+    var mostrar_respuestas = document.getElementById('checkbox_mostrar_preguntas')
+    var self = this
+    mostrar_respuestas.addEventListener( 'change', function() {
+      if(this.checked) {
+        console.log('Checao: ' + this.checked);
+        
+        self.setState({
+              respuesta_visible: 'block', 
+              estado_respuesta: 'Ocultar'
+            })
+        } else {
+          self.setState({
+            respuesta_visible: 'none', 
+            estado_respuesta: 'Mostrar'
+          })
+        }
+      });
   }
 
   toggleVisible(){
       if(this.state.respuesta_visible==='block'){
         this.setState({respuesta_visible: 'none', estado_respuesta: 'Mostrar'})
       }else{
-          this.setState({respuesta_visible: 'block', estado_respuesta: 'Ocultar'})
+        this.setState({respuesta_visible: 'block', estado_respuesta: 'Ocultar'})
       }
   }
 

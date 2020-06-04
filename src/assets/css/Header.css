@@ -8,6 +8,11 @@
   align-items: flex-end;
 }
 
+#login_button{
+  background-color: var(--primary);
+  color: var(--light_color);
+  border-color: var(--light_color);
+}
 
 /* For mobile phones: */
 
@@ -20,7 +25,6 @@
 .menu{
   background-color:  #282c34;
 }
-
 
 #standard_button{
   width: 10rem;
@@ -35,8 +39,24 @@
 #profile_image{
   width: 40rem;
   max-height: auto;
+  margin-right: 10px;
+  border-radius: 50px;
 }
 
+#profile_login_container{
+  display: flex;
+  margin: auto;
+  margin-top: 10px;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+@media only screen and (min-width: 1000px) {
+  #profile_login_container{
+    margin-top: 0px;
+    justify-content: flex-end;
+  }
+}
 /* For desktop: */
 @media only screen and (min-width: 768px) {
 
@@ -52,4 +72,6 @@
     margin-top: auto;
     margin-bottom: auto;
   }
+
+
 }

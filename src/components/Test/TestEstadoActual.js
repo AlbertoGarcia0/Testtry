@@ -79,9 +79,7 @@ class EstadoTest extends React.Component{
     return(
       <Card id='test_estado'>
           <Card.Body id='test_estado_body'>
-            <Container fluid='true'>
-              <Row top="xs">
-                <Col>
+            <Container id='container_test_estado' >
                   <ProgressBar id='progress_bar'
                     radius={100} progress={this.state.progress_preguntas_respondidas} cut={120} rotate={-210} strokeWidth={16}
                     strokeColor="#5d9cec" strokeLinecap="square" trackStrokeWidth={8} trackStrokeColor="#e6e6e6"
@@ -90,20 +88,14 @@ class EstadoTest extends React.Component{
                       <QuestionIndicator
                         respondidas={this.props.estado_padre.preguntas_respondidas}
                         preguntas_total={this.props.estado_padre.num_preguntas}/>
-
                   </ProgressBar>
-                </Col>
-                <Col>
-                  <ProgressBar
+                  <ProgressBar id='time_bar'
                     radius={100} progress={this.state.progress_tiempo} strokeWidth={3} strokeColor="indianred"
                     trackStrokeWidth={3} trackStrokeColor="#e6e6e6" pointerRadius={5} pointerFill="white"
                     pointerStrokeWidth={2} pointerStrokeColor="indianred">
                     <TimeIndicator
                       percentage={this.state.progress_tiempo}/>
                   </ProgressBar>
-
-                </Col>
-              </Row>
             </Container>
           </Card.Body>
         </Card>
