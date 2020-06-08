@@ -39,13 +39,15 @@ class PanelPregunta extends React.Component{
       bloquear_radio: false})
   }
 
-  corregir(){
+  async corregir(){
     this.setState({footer_visibility:'block', bloquear_radio:true})
-    if(this.isCorrecta()){
+    let correcta = await this.isCorrecta()
+    if(correcta){
       this.setState({header_bg:'rgb(28, 162, 0)'})
     }else {
       this.setState({header_bg:'rgb(224, 41, 29)'})
     }
+    return correcta
   }
 
   isCorrecta(){
@@ -94,7 +96,6 @@ class PanelPregunta extends React.Component{
 }
 
 
-
 class ContainerPreguntas extends React.Component{
   constructor(props){
     super(props)
@@ -117,11 +118,14 @@ class ContainerPreguntas extends React.Component{
     }
   }
 
-  corregirTest(){
+  async corregirTest(){
+    let acertadas = 0, correcta = false
     for (var i = 0; i < this.corregir_funct.length; i++) {
-      this.corregir_funct[i].call()
+      correcta = await this.corregir_funct[i].call()
+      if(correcta) acertadas ++
     }
     this.setState({corregido:true})
+    this.props.actualizarCorrectas(acertadas)
   }
 
   render(){
@@ -141,7 +145,8 @@ class ContainerPreguntas extends React.Component{
                          enunciado={pregunta[0].enunciado}
                          respuestas={pregunta[0].respuestas}
                          correcta={pregunta[0].verdadera}
-                         actualizarRespondidas={this.props.actualizarRespondidas}/>
+                         actualizarRespondidas={this.props.actualizarRespondidas}
+                         actualizarCorrectas={this.props.actualizarCorrectas}/>
                      </React.Fragment>
                    ))}
                  </React.Fragment>

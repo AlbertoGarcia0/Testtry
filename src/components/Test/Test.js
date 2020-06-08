@@ -6,6 +6,7 @@ import {Container, Col, Row} from 'react-bootstrap'
 import FormularioTest from './TestConfig'
 import EstadoTest from './TestEstadoActual'
 import ContainerPreguntas from './/ContainerPreguntas'
+import ModalPreguntas from './modalPreguntasAcertadas'
 
 import * as JSONRetriever from '../Logic/JSONRetriever'
 
@@ -18,20 +19,25 @@ export class Test extends React.Component{
       preguntas_respondidas: '-',
       tiempo_total: 0,
       asignatura: '',
-      preguntas_test: []
+      preguntas_test: [],
+      mostarModalAcertadas: false,
+      preguntas_correctas: 0
     }
     this.startTest = this.startTest.bind(this);
     this.corregirTest = this.corregirTest.bind(this);
     this.actualizarRespondidas = this.actualizarRespondidas.bind(this)
+    this.actualizarCorrectas = this.actualizarCorrectas.bind(this)
     this.PanelPreguntaReference = React.createRef()
     this.PanelEstadoReference = React.createRef()
+    this.hideModal = this.hideModal.bind(this)
   }
 
   async startTest(){
     let res_preguntas_test = await JSONRetriever.getPreguntasTest(this.state.num_preguntas, this.state.asignatura)
     this.setState({
       preguntas_test: res_preguntas_test,
-      preguntas_respondidas: 0
+      preguntas_respondidas: 0,
+      preguntas_correctas: 0
       })
     this.setState({config_set:true})
     this.PanelPreguntaReference.current.refreshContainer()
@@ -41,6 +47,7 @@ export class Test extends React.Component{
 
   corregirTest(){
     this.PanelPreguntaReference.current.corregirTest()
+    this.setState({mostarModalAcertadas: true})
   }
   
   componentDidMount() {
@@ -52,9 +59,18 @@ export class Test extends React.Component{
     this.PanelEstadoReference.current.updateEstadoTest()
   }
 
+  actualizarCorrectas(num){
+    this.setState({preguntas_correctas: num})
+  }
+
+  hideModal(){
+    this.setState({mostarModalAcertadas:false})
+  }
   render(){
     return(
         <Container id='component_test' fluid='true'>
+          <ModalPreguntas visible={this.state.mostarModalAcertadas} hideModal={this.hideModal} correctas={this.state.preguntas_correctas}/>
+
           <Row top="xs">
             <Col md={4} id='test_card_options'>
               <FormularioTest id='test_config'
@@ -70,6 +86,7 @@ export class Test extends React.Component{
                   ref={this.PanelPreguntaReference}
                   estado_padre={this.state}
                   actualizarRespondidas={this.actualizarRespondidas}
+                  actualizarCorrectas={this.actualizarCorrectas}
                   />
             </Col>
           </Row>

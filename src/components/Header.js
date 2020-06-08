@@ -138,7 +138,7 @@ class Header extends React.Component{
          <Route exact path="/test" component={test_view}/>
          <Route path="/busqueda" component={busqueda_view}/>
          {this.state.user_logged && //Si no esta autenticado, no puede acceder al perfil
-         <Route path="/profile" render={() => <Profile user={this.state.user} />}/>
+            <Route path="/profile" render={() => <Fade> <Profile user={this.state.user}/> </Fade>}/>
           }
          <Route path="/404" component={notFound}/>
          <Redirect to="/404" />

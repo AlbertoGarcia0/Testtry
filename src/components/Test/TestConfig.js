@@ -11,6 +11,7 @@ import Nouislider from "nouislider-react";
 import { ToastContainer, toast } from 'react-toastify';
 
 import * as JSONRetriever from '../Logic/JSONRetriever'
+import ModalPreguntas from './modalPreguntasAcertadas'
 
 toast.configure()
 
@@ -41,7 +42,6 @@ class FormularioTest extends React.Component{
     this.setAsignatura = this.setAsignatura.bind(this);
     this.startTest = this.startTest.bind(this);
     this.setNumPreguntas = this.setNumPreguntas.bind(this);
-    this.toggleVisible = this.toggleVisible.bind(this);
   }
 
   async componentDidMount(){
@@ -86,7 +86,6 @@ class FormularioTest extends React.Component{
 
     }else if (this.state.test_state == 1) {
       this.setState({label_button_test: 'Comenzar', test_state:0})
-      this.toggleVisible.call()
       this.props.corregir.call()
       document.getElementById("test_start_button").style.background='#FDD036';
       document.getElementById("test_start_button").style.border='#FDD036';
@@ -97,9 +96,6 @@ class FormularioTest extends React.Component{
     }
   }
 
-  toggleVisible(){
-    this.setState({show_modal:!this.state.show_modal})
-  }
   render(){
     const animatedComponents = makeAnimated();
     return(
@@ -108,7 +104,6 @@ class FormularioTest extends React.Component{
           <Card.Body id='busqueda_card_body'>
             <Container id='busqueda_card_body_container' fluid='true'>
               <ReactPlaceholder type='text' rows={7} ready={this.state.ready} >
-
                 <Select id='form_element_dropdown' options={this.state.asignaturas_disponibles}
                   closeMenuOnSelect={false}
                   components={animatedComponents}
