@@ -9,10 +9,10 @@ import Navbar from 'react-bootstrap/Navbar'
 
 const EduardezInfoPopover = (
   <Popover id="popover-info">
-    <Popover.Title as="h3">Eduardez</Popover.Title>
+    <Popover.Title as="h3">Eduardez y Kolsak</Popover.Title>
     <Popover.Content>
       <p>
-        <a href="https://www.github.com/eduardez" target="_blank"> <strong>GitHub</strong></a>
+        <a href="https://www.github.com/albertogarcia0" target="_blank"> <strong>GitHub</strong></a>
       </p>
     </Popover.Content>
   </Popover>

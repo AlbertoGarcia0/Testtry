@@ -2,7 +2,7 @@
   "name": "testtry",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://eduardez.github.io/Testtry",
+  "homepage": "https://albertogarcia0.github.io/Testtry",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

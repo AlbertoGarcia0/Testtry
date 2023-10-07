@@ -24,15 +24,15 @@ class TostadasToastify extends React.Component {
   }
 
   defaulto(){
-    toast("HACKEA ESTO, HACKEA ESTO! (Dice Quequé mientras Pablo enfoca los huevos imponentes de Nacho)",
+    toast("Se ha pillao nena, no te hagas la tonta!",
      { type:"default"});}
 
    warning(){
-     toast("HACKEA ESTO, HACKEA ESTO! (Dice Quequé mientras Pablo enfoca los huevos imponentes de Nacho)",
+     toast("Pero que haces DORIS, QUE NO DOY UNA!",
        { type:"warning" });}
 
    info(){
-     toast("Mirame MIRAME, SOY TU FUTURO!!",
+     toast("Mirame DORIS, SOY TU FUTURO!!",
       { type:"info"});}
 
    danger(){
@@ -40,7 +40,7 @@ class TostadasToastify extends React.Component {
       { type:"error"});}
 
   success(){
-    toast("Aún huele a leche.",
+    toast("Aún huele a TCAE.",
       { type:"success"});}
 
   render() {
