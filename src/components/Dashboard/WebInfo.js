@@ -22,6 +22,7 @@ class WebInfo extends React.Component{
               que esta es una aplicación colaborativa, es decir, si compartes tus cuestionarios con otros,
               todos tendran acceso a mas preguntas y, por lo tanto, podran comprobar aún mejor si aprobarán el examen o no. </p>
             <p>Ya te he soltado la chapa, asi que puedes seguir haciendo lo que quieras. </p>
+            <p>Doris tu puedes :3</p>
           </Col>
         </Row>
       </Container>
