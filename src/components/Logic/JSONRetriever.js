@@ -1,5 +1,5 @@
 
-const base_url = 'https://eduardez.github.io/Testtry/src/TesttryDB/'
+const base_url = 'https://albertogarcia0.github.io/Testtry/src/TesttryDB/'
 
 export async function getPreguntas(asignatura, palabras_clave, tipo_pregunta){
   var result_array = JSON.parse('{"Preguntas":[]}')
