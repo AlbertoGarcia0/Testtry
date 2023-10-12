@@ -1,5 +1,5 @@
 
-const base_url = 'https://eduardez.github.io/Testtry-Database-Manager/APP_TESTS/TesttryDB/'
+const base_url = 'https://eduardez.github.io/Testtry/src/TesttryDB/'
 
 export async function getPreguntas(asignatura, palabras_clave, tipo_pregunta){
   var result_array = JSON.parse('{"Preguntas":[]}')
@@ -46,6 +46,7 @@ async function isWordContained(pregunta, arr_palabra){
 export async function getAllAsignaturas(){
   let result = []
   let url = base_url +'/database_info.json'
+  console.log(url);
   let response = await fetch(url);
   if(response.status == 404){
     console.log('NOT FOUND database_info');
