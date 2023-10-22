@@ -1,16 +1,16 @@
 
-const base_url = 'https://albertogarcia0.github.io/Testtry/src/TesttryDB/'
-
-export async function getPreguntas(asignatura, palabras_clave, tipo_pregunta){
-  var result_array = JSON.parse('{"Preguntas":[]}')
-  let url = base_url + asignatura +'/preguntas.json'
-  let response = await fetch(url);
-  if(response.status == 404){
-    console.log('NOT FOUND');
-  }else {
-    result_array = await response.json()
+export async function getPreguntas(asignatura, palabras_clave, tipo_pregunta) {
+  try {
+    const data = await fs.readFile(`./${asignatura}/preguntas.json`, 'utf-8');
+    const result_array = JSON.parse(data);
+    return result_array;
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      console.log('File not found');
+      return { Preguntas: [] };
+    }
+    throw error;
   }
-  return result_array
 }
 
 export async function buscarPreguntas(asignatura, palabras){
@@ -43,18 +43,21 @@ async function isWordContained(pregunta, arr_palabra){
   return isContained
 }
 
-export async function getAllAsignaturas(){
-  let result = []
-  let url = base_url +'/database_info.json'
-  console.log(url);
-  let response = await fetch(url);
-  if(response.status == 404){
-    console.log('NOT FOUND database_info');
-  }else {
-    result = await response.json()
+import fs from 'fs/promises';
+
+export async function getAllAsignaturas() {
+  try {
+    const data = await fs.readFile('./database_info.json', 'utf-8');
+    const result = JSON.parse(data);
+    const asignaturas = result.categorias;
+    return asignaturas;
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      console.log('File not found: database_info.json');
+      return [];
+    }
+    throw error;
   }
-  let asignaturas = result.categorias
-  return asignaturas
 }
 
 export async function getAllNamesAsignaturas(){
